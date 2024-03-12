@@ -103,6 +103,7 @@ CSRF_TRUSTED_ORIGINS = [
     "http://localhost:3000",
 ]
 
+ALLOWED_HOSTS = ['capstone-api-1-urj1.onrender.com', 'localhost']
 ROOT_URLCONF = 'project.urls'
 
 TEMPLATES = [
