@@ -9,7 +9,6 @@ from .serializers import StoreSerializer, CategorySerializer, ProductSerializer
 class StoreCreateView(generics.CreateAPIView):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save()
@@ -17,17 +16,17 @@ class StoreCreateView(generics.CreateAPIView):
 class StoreUpdateView(generics.UpdateAPIView):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = "pk"
 
 class StoreDeleteView(generics.DestroyAPIView):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = "pk"
 
 class StoreListView(generics.ListAPIView):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = "pk"
 
 
 
@@ -37,12 +36,11 @@ class StoreListView(generics.ListAPIView):
 class CategoryListView(generics.ListAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = "pk"
 
 class CategoryCreateView(generics.CreateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save()
@@ -51,12 +49,12 @@ class CategoryCreateView(generics.CreateAPIView):
 class CategoryUpdateView(generics.UpdateAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = "pk"
 
 class CategoryDeleteView(generics.DestroyAPIView):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = "pk"
 
 
 # Product Serializer
@@ -64,12 +62,11 @@ class CategoryDeleteView(generics.DestroyAPIView):
 class ProductListView(generics.ListAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = "pk"
 
 class ProductCreateView(generics.CreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
     def perform_create(self, serializer):
         serializer.save()
@@ -78,17 +75,16 @@ class ProductCreateView(generics.CreateAPIView):
 class ProductUpdateView(generics.UpdateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = "pk"
 
 class ProductDeleteView(generics.DestroyAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
-    permission_classes = [permissions.IsAuthenticated]
+    lookup_field = "pk"
 
 
 class ProductSearchView(generics.ListAPIView):
     serializer_class = ProductSerializer
-    permission_classes = [permissions.IsAuthenticated]
 
     def get_queryset(self):
         queryset = Product.objects.all()
