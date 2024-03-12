@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'rest_framework.authtoken',
     'djoser',
     'drf_yasg',
+    'corsheaders',
 ]
 
 AUTH_USER_MODEL = 'users.CustomUser'
@@ -73,12 +74,33 @@ DJOSER = {
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+]
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://domain.com",
+    "http://localhost:8080",
+]
+
+CORS_ALLOW_METHODS = (
+    "GET",
+    "OPTIONS",
+)
+
+
+CORS_ALLOWED_ALL_ORIGIN = True
+
+
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost:3000",
 ]
 
 ROOT_URLCONF = 'project.urls'
