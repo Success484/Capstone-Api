@@ -22,7 +22,6 @@ class Product(models.Model):
 class Store(models.Model):
     name = models.CharField(max_length=255)
     location = models.CharField(max_length=255)
-    products = models.ManyToManyField(Product)
 
     def __str__(self):
         return self.name

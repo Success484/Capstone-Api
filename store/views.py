@@ -5,14 +5,16 @@ from .serializers import StoreSerializer, CategorySerializer, ProductSerializer
 
 
 # Store serializer
-
-class StoreCreateView(generics.CreateAPIView):
+# To create store
+class StoreCreateView(generics.CreateAPIView): 
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
 
     def perform_create(self, serializer):
         serializer.save()
 
+
+# Update store
 class StoreUpdateView(generics.UpdateAPIView):
     queryset = Store.objects.all()
     serializer_class = StoreSerializer
